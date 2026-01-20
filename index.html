@@ -476,7 +476,7 @@
 
                         try {
                             const keys = Object.keys(localStorage)
-                                .filter(k => k.startsWith('qijiu_save_slot_'))
+                                .filter(k => k.startsWith('lunhui_save_slot_'))
                                 .map(k => {
                                     try {
                                         const itemData = JSON.parse(localStorage.getItem(k));
@@ -1377,7 +1377,7 @@
             });
 
             // 已解锁结局记录
-            const UNLOCKED_ENDINGS_KEY = 'qijiu_unlocked_endings';
+            const UNLOCKED_ENDINGS_KEY = 'lunhui_unlocked_endings';
             const [unlockedEndings, setUnlockedEndings] = useState(() => {
                 try {
                     const saved = Storage.get(UNLOCKED_ENDINGS_KEY);
@@ -1393,7 +1393,7 @@
             });
 
             // 已解锁章节记录
-            const UNLOCKED_CHAPTERS_KEY = 'qijiu_unlocked_chapters';
+            const UNLOCKED_CHAPTERS_KEY = 'lunhui_unlocked_chapters';
             const [unlockedChapters, setUnlockedChapters] = useState(() => {
                 try {
                     const saved = Storage.get(UNLOCKED_CHAPTERS_KEY);
@@ -1446,7 +1446,7 @@
             };
 
             // Settings
-            const SETTINGS_KEY = 'qijiu_settings';
+            const SETTINGS_KEY = 'lunhui_settings';
             const loadSettings = () => {
                 try {
                     const saved = Storage.get(SETTINGS_KEY);
@@ -1467,9 +1467,9 @@
             const timerRef = useRef(null);
             const autoTimerRef = useRef(null);
 
-            const AUTO_SAVE_KEY = 'qijiu_auto_save';
-            const SAVE_SLOT_PREFIX = 'qijiu_save_slot_';
-            const READ_TEXT_KEY = 'qijiu_read_text'; // 已读文本记录
+            const AUTO_SAVE_KEY = 'lunhui_auto_save';
+            const SAVE_SLOT_PREFIX = 'lunhui_save_slot_';
+            const READ_TEXT_KEY = 'lunhui_read_text'; // 已读文本记录
 
             // 状态历史栈 (用于回退功能)
             const [stateHistory, setStateHistory] = useState([]);
