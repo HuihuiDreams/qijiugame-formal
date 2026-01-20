@@ -605,66 +605,68 @@
         const SCENES = {
             'chapter0': {
                 lines: [
-                    { speaker: '旁白', text: "沈九被赐名沈清秋，成为清静峰首席当天。", mood: 'narrative', bg: ASSETS.bg.qingjing_night },
-                    { speaker: '旁白', text: "是夜。沈清秋终于忙完了，回到自己住处，却看见了此生无比厌烦的一个人——岳清源。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋本想直接忽视他，直接进屋舍休息，忙了一天，他很累了。", mood: 'narrative' },
-                    { speaker: '旁白', text: "两人即将擦肩而过时，岳清源握住了他的手，沈清秋皱眉。", mood: 'narrative' },
-                    { speaker: '沈清秋', text: "放开！恶心。", mood: 'disdain' },
-                    { speaker: '岳清源', text: "小九，我们一定要这样吗？", mood: 'worried' },
-                    { speaker: '沈清秋', text: "别喊那个名字！我们不应该这样吗？岳清源！我们只能这样……", mood: 'angry' },
+                    { speaker: '背景', text: "沈九被赐名沈清秋，成为清静峰首席当天。", mood: 'cold', bg: ASSETS.bg.qingjing_night },
+                    { speaker: '旁白', text: "是夜。沈清秋终于忙完了，回到自己住处，却看见了此生无比厌烦的人——岳清源。", mood: 'narrative' },
+                    { speaker: '旁白', text: "沈清秋直接忽视他，绕行想进屋舍休息，忙了一天，他很累。", mood: 'narrative' },
+                    { speaker: '旁白', text: "两人即将擦肩而过时，岳清源扯住了他的手腕，沈清秋一顿，皱眉。", mood: 'narrative' },
+                    { speaker: '沈清秋', text: "放开！恶心。", mood: 'repulsive' },
+                    { speaker: '岳清源', text: "小九，我们一定要这样吗？", mood: 'perplexed' },
+                    { speaker: '沈清秋', text: "是清秋！！（语气沉沉）我们应该怎样？岳清源，我们只能这样……", mood: 'angry' },
+                    { speaker: '系统', text: "进入强制歧路，加载中……", mood: 'system', shake: true }
                 ],
-                next: 'choice0'
+                next: 'path_a_title'
             },
-            'choice0': {
-                type: 'choice',
-                question: "沈清秋试图甩开岳清源的手。岳清源会？",
+            'path_a_title': {
+                type: 'ending',
+                title: '强制歧路甲',
+                subtitle: '竹柏剑穗',
                 bg: ASSETS.bg.qingjing_night,
-                options: [
-                    // Option A leads to a text descriptions then returns to force option B
-                    { id: 'A', text: "松手放开沈清秋", next: 'scene_0_A_result' },
-                    { id: 'B', text: "强吻沈清秋", next: 'scene_0_B_result' }
-                ]
+                next: 'path_a'
             },
-            'choice0_forced': {
-                type: 'choice',
-                question: "岳清源只能...",
+            'path_a': {
+                lines: [
+                    { speaker: '旁白', text: "岳清源松开了沈清秋的手，对方像触及瘟神般，立即抽身离开。", mood: 'narrative' },
+                    { speaker: '旁白', text: "岳清源被拒之门外，神情很是颓然，将准备好的首席弟子礼从怀中取出——竹柏剑穗放在沈清秋的屋门口驻足许久才有离开之举。", mood: 'narrative' },
+                    { speaker: '旁白', text: "沈清秋在门外彻底没动静后，思绪烦乱，只觉得岳清源真是有病，平白无故扰人清修，打开门，想把那物件扔的远远的，却发现人并没有走，离竹舍十几步远。", mood: 'narrative' },
+                    { speaker: '旁白', text: "两人看见对方都是一愣，十几步好似就是他们一生都无法跨越的距离。", mood: 'narrative' },
+                    { speaker: '系统', text: "【警告】检测到情感拼图缺失。因果链条重构中……强制进入另一段“真实”。", mood: 'system', shake: true }
+                ],
+                next: 'path_b_title'
+            },
+            'path_b_title': {
+                type: 'ending',
+                title: '强制歧路乙',
+                subtitle: '岳清源的疯狂',
                 bg: ASSETS.bg.qingjing_night,
-                options: [
-                    // Only Option B is available
-                    { id: 'B', text: "强吻沈清秋", next: 'scene_0_B_result' }
-                ]
+                next: 'path_b'
             },
-            'scene_0_A_result': {
+            'path_b': {
                 lines: [
-                    { speaker: '旁白', text: "岳清源松开了沈清秋的手，在离开之前，将准备好的首席弟子礼——竹柏剑穗放在沈清秋的屋门口。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋在人走远之后，才打开门，却发现人并没有走，离竹舍十几步远。两人看见对方都是一愣，十几步好似就是他们一生都无法跨越的距离。", mood: 'narrative' },
-                    { speaker: '旁白', text: "（此路不通，命运强制收束）", mood: 'narrative' }
+                    { speaker: '旁白', text: "岳清源的手指收得更紧，没有丝毫松手的架势。", mood: 'narrative' },
+                    { speaker: '旁白', text: "沈清秋猛地挣动，却在对方稍稍卸力的瞬间猝不及防地向前一倾，就这失力空隙，便被他身后人死死将他箍进了怀里。", mood: 'narrative' },
+                    { speaker: '旁白', text: "沈清秋扭转身体手肘狠狠向后撞去，用了十足劲在挣开的刹那反手一掌掴在对方脸上。脆响过后，四下陡然死寂。", mood: 'narrative' },
+                    { speaker: '旁白', text: "岳清源偏着脸，转过头来脸上笑得明朗。两人对视，沈清秋默默将刚动过人的手收到背后紧握成拳，他知道那一下太重，但事已至此已经不好再说什么，只得相顾无言。", mood: 'narrative' },
+                    { speaker: '旁白', text: "想离开刚又动作，下一秒，沉浑的灵力铺天盖地压来，将沈清秋所有的动作与话音都锁在原地。", mood: 'narrative' },
+                    { speaker: '旁白', text: "沈清秋被这股力道压得向后一仰，岳清源便趁机将人拥入怀中，扣住他的后颈，重重吻了上去。", mood: 'narrative', bg: ASSETS.bg.kiss },
+                    { speaker: '旁白', text: "这亲吻堵住了，那张从不服软的嘴，也堵住了自己喉间几欲冲出的辩解与苦衷。", mood: 'narrative' },
+                    { speaker: '旁白', text: "气息交缠间只剩下急促的闷响，像困兽的挣扎。岳清源闭着眼想，错过了这一次，下一次还能不能握得住他？", mood: 'narrative' }
                 ],
-                next: 'choice0_forced'
+                next: 'scene_system_space'
             },
-            'scene_0_B_result': {
+            'scene_system_space': {
                 lines: [
-                    { speaker: '旁白', text: "沈清秋想甩开岳清源，就在这个时候，那原本要离开的人，在松开的瞬间紧紧从沈清秋身后抱住他。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋大怒，推开岳清源，扇了岳清源一巴掌。", mood: 'narrative' },
-                    { speaker: '旁白', text: "岳清源笑了一声，第一次用灵力压制沈清秋，像是被刺激到了什么，狠狠吻了上去，堵住了那张说不出一句软话的嘴，也堵住了自己解释的机会。", mood: 'narrative', bg: ASSETS.bg.kiss },
-                    { speaker: '旁白', text: "下一次机会，又是什么时候呢？", mood: 'narrative' }
-                ],
-                next: 'scene_0_system_awakening'
-            },
-            'scene_0_system_awakening': {
-                lines: [
-                    { speaker: '旁白', text: "这一夜发生了一件让沈清秋无法用他原来的世界观解释的事情。", mood: 'narrative', bg: ASSETS.bg.system_space },
-                    { speaker: '沈清秋', text: "所以你不是人，对吧。", mood: 'cold', },
-                    { speaker: '系统', text: "……可以这么说。", mood: 'system' },
-                    { speaker: '沈清秋', text: "我凭什么相信你？", mood: 'sorrow' },
-                    { speaker: '系统', text: "你赌不起。你要用岳清源的命来赌我可不可信吗？", mood: 'system' },
-                    { speaker: '旁白', text: "沈清秋陷入了沉思，看着那个光团和莫名其妙的面板，里面甚至还有什么商城……而且乱七八糟的不止这个系统，还有那个吻。", mood: 'narrative' },
-                    { speaker: '沈清秋', text: "（内心）一切都很乱。我确实赌不起...不过，系统所谓的隐藏结局究竟是什么？这个系统的目的又是什么？为什么系统要岳清源消耗寿命？", mood: 'worried' },
-                    { speaker: '沈清秋', text: "（内心）岳清源……岳清源……我们这一辈子纠缠着彼此太久，你还瞒着我什么？太多太多谜团需要自己去理清。", mood: 'sorrow' },
-                    { speaker: '沈清秋', text: "还有其他人有系统吗？", mood: 'confused' },
-                    { speaker: '系统', text: "有。", mood: 'system' },
-                    { speaker: '沈清秋', text: "谁？", mood: 'normal' },
-                    { speaker: '系统', text: "您暂时无权访问，但那人不会阻碍您的选择。", mood: 'system' },
+                    { speaker: '旁白', text: "画面归于寂静，沈清秋进入系统空间，面对悬浮的光团。", mood: 'narrative', bg: ASSETS.bg.system_space, shake: true },
+                    { speaker: '沈清秋', text: "刚才那是……什么鬼魅邪术？你是何方妖孽？", mood: 'shocked' },
+                    { speaker: '系统', text: "宿主沈清秋，请冷静。你可以将我视为某种“器灵”，但在我的世界，我被称为“系统”。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "“系统”……从未听闻的名字。你刚才让我看到的那些幻象，究竟想说明什么？", mood: 'clenched' },
+                    { speaker: '系统', text: "我是由无数“愿景”凝聚而成的产物，你可以理解为一种“天命的修正机制”。刚才你体验的是一个通往毁灭的歧路。", mood: 'cold' },
+                    { speaker: '系统', text: "你现在正处于一段轮回中。每一次出现这种错误的结局并重来，岳清源的寿元便会折损。", mood: 'cold' },
+                    { speaker: '系统', text: "除非你能在这重重迷雾中，亲手推动一个“圆满结局”。", mood: 'cold' },
+                    { speaker: '系统', text: "只有达成圆满，岳清源折损的寿元才会被彻底抵消并补全。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "（沉思良久）你要我用他的命来赌你可不可信吗？（握紧折扇）……在这世间，难道还有其他像我一样，被你们这种“系统”选中、或者说被缠上的人吗？", mood: 'clenched' },
+                    { speaker: '系统', text: "有。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "谁？", mood: 'cold' },
+                    { speaker: '系统', text: "您暂时无权访问。但那人不会阻碍您的选择。", mood: 'cold' },
                     { speaker: '旁白', text: "（序章 完）", mood: 'narrative' }
                 ],
                 next: 'endingWait'
@@ -694,8 +696,8 @@
             'chapter0': {
                 id: 'chapter0',
                 order: 0,
-                title: '序章：重生',
-                description: '沈九的重生，一切的开始...'
+                title: '序章',
+                description: '沈清秋获得赐名当日。'
             }
         };
         const TOTAL_CHAPTERS = Object.keys(CHAPTERS_META).length;
@@ -1840,8 +1842,8 @@
                 }
 
                 if (currentScene?.type === 'ending') {
-                    // 解锁当前结局
-                    if (!unlockedEndings.has(gameState.sceneId)) {
+                    // 只有没有 next 的才算真正结局，需要解锁
+                    if (!currentScene.next && !unlockedEndings.has(gameState.sceneId)) {
                         const newUnlocked = new Set(unlockedEndings);
                         newUnlocked.add(gameState.sceneId);
                         setUnlockedEndings(newUnlocked);
@@ -1851,20 +1853,35 @@
                         }
                     }
 
-                    // 结局时，重置所有状态
+                    // 渲染过场/结局画面
                     return html`
                         <div class="absolute inset-0 flex items-center justify-center bg-black/80 z-40 p-2 md:p-8 text-center animate-in fade-in duration-1000">
                              <div class="ending-container-mobile-landscape max-w-3xl w-full h-full flex flex-col items-center justify-center relative">
                                 <h1 class="ending-title-mobile-landscape text-3xl md:text-5xl font-calligraphy text-amber-500 mb-2 md:mb-6 tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] shrink-0">${currentScene.title}</h1>
+                                ${currentScene.subtitle && html`<h2 class="text-xl md:text-3xl font-serif-sc text-slate-300 mb-4 md:mb-8 tracking-wider">${currentScene.subtitle}</h2>`}
                                 ${currentScene.text && html`<p class="ending-text-mobile-landscape text-slate-300 text-sm md:text-xl leading-relaxed text-left mx-auto mb-4 md:mb-10 font-serif-sc p-4 md:p-6 bg-slate-900/50 rounded-lg border border-slate-700/50 overflow-y-auto">${currentScene.text}</p>`}
-                        <button onClick=${() => {
-                            setGameState({ sceneId: 'start', lineIndex: 0, bg: ASSETS.bg.start, history: [] });
-                            setIsAuto(false);
-                            setIsSkip(false);
-                            setStateHistory([]); // 清空回退历史
-                        }} class="ending-btn-mobile-landscape px-6 py-2 md:px-10 md:py-3 bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 border border-slate-500 text-slate-100 rounded text-base md:text-xl font-serif-sc tracking-widest shadow-lg transition-transform hover:scale-105 shrink-0">
-                                    返回标题
-                                </button>
+                                ${currentScene.next ? html`
+                                    <button onClick=${() => {
+                                const nextScene = SCENES[currentScene.next];
+                                setGameState(prev => ({
+                                    sceneId: currentScene.next,
+                                    lineIndex: 0,
+                                    bg: nextScene?.lines?.[0]?.bg || nextScene?.bg || prev.bg,
+                                    history: prev.history
+                                }));
+                            }} class="ending-btn-mobile-landscape px-6 py-2 md:px-10 md:py-3 bg-gradient-to-r from-cyan-800 to-cyan-700 hover:from-cyan-700 hover:to-cyan-600 border border-cyan-500 text-slate-100 rounded text-base md:text-xl font-serif-sc tracking-widest shadow-lg transition-transform hover:scale-105 shrink-0">
+                                        继续
+                                    </button>
+                                ` : html`
+                                    <button onClick=${() => {
+                                setGameState({ sceneId: 'start', lineIndex: 0, bg: ASSETS.bg.start, history: [] });
+                                setIsAuto(false);
+                                setIsSkip(false);
+                                setStateHistory([]);
+                            }} class="ending-btn-mobile-landscape px-6 py-2 md:px-10 md:py-3 bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 border border-slate-500 text-slate-100 rounded text-base md:text-xl font-serif-sc tracking-widest shadow-lg transition-transform hover:scale-105 shrink-0">
+                                        返回标题
+                                    </button>
+                                `}
                              </div>
                         </div>
                      `;
@@ -1890,13 +1907,13 @@
                         const mood = currentLine?.mood || 'neutral';
                         let spriteSrc = ASSETS.char.sqq.v1; // 默认：正常
 
-                        if (['neutral', 'normal', 'cold', 'angry', 'disdain', 'determined', 'narrative'].includes(mood)) {
+                        if (['neutral', 'normal', 'cold', 'disdain', 'determined', 'narrative'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v1; // 1. 正常
                         } else if (['sleep', 'sorrow', 'despair', 'calm', 'thinking'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v2; // 2. 闭眼
                         } else if (['pain', 'embarrassed_shy', 'flush'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v3; // 3. 脸红闭眼
-                        } else if (['worried', 'confused', 'surprised', 'shocked', 'soft', 'hesitant'].includes(mood)) {
+                        } else if (['worried', 'confused', 'surprised', 'shocked', 'soft', 'hesitant', 'repulsive', 'angry'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v4; // 4. 眼睛看旁边
                         } else if (['shame', 'shy', 'flustered', 'dark'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v5; // 5. 脸红+眼睛看旁边
