@@ -9,7 +9,7 @@
  * 严禁将其用于其他角色配对（CP）或商业用途。
  * 4. 任何未经许可的盗用行为，制作组保留追究其法律责任及公开维权的权利。
  * * Project: [轮回百世·与秋同归]
- * Developers: @灰灰(程序), @数据(美术), @rosy(脚本), @星河妄想(脚本), @设定(监制)
+ * Developers: @灰灰(程序), @数据(美术), @rosy(脚本), @星河妄想(脚本)
  */
 -->
 <!DOCTYPE html>
@@ -635,9 +635,15 @@
         const ASSETS = {
             bg: {
                 qingjing_night: './qingjingpeaknight.png',
-                system_space: './black.png', // Pure black background image
-                start: './start_screen.png', // Original start screen
-                kiss: './ending_b.png'
+                system_space: './xitongbk.png',
+                start: './start_screen.png',
+                kiss: './ending_b.png',
+                // Chapter 1 backgrounds
+                meeting_room: './meetingroom.png',
+                bamboo_hut_day: './bamboohut_day.png',
+                bedroom_day: './bedroom_day.png',
+                anding_peak: './andingpeak.png',
+                mountain_day: './mountain_day.png'
             },
             char: {
                 sqq: {
@@ -647,8 +653,7 @@
                     v4: './sqq_4.png',        // Shocked
                     v5: './sqq_5.png'         // Shame
                 },
-                yqy: './yueqingyuan.png',
-                system: './xitong.PNG'
+                yqy: './yueqingyuan.png'
             },
             audio: { // Keep existing audio for now
                 bgm: './baheng.mp3',
@@ -666,76 +671,216 @@
         const SCENES = {
             'chapter0': {
                 lines: [
-                    { speaker: '背景', text: "沈九被赐名沈清秋，成为清静峰首席当天。", mood: 'cold', bg: ASSETS.bg.qingjing_night },
-                    { speaker: '旁白', text: "是夜。沈清秋终于忙完了，回到自己住处，却看见了此生无比厌烦的人——岳清源。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋直接忽视他，绕行想进屋舍休息，忙了一天，他很累。", mood: 'narrative' },
-                    { speaker: '旁白', text: "两人即将擦肩而过时，岳清源扯住了他的手腕，沈清秋一顿，皱眉。", mood: 'narrative' },
-                    { speaker: '沈清秋', text: "放开！恶心。", mood: 'repulsive' },
-                    { speaker: '岳清源', text: "小九，我们一定要这样吗？", mood: 'perplexed' },
-                    { speaker: '沈清秋', text: "是清秋！！（语气沉沉）我们应该怎样？岳清源，我们只能这样……", mood: 'angry' },
-                    { speaker: '系统', text: "进入强制歧路，加载中……", mood: 'system', shake: true }
+                    { speaker: '背景', text: " 沈九被赐名沈清秋，成为清静峰首席当天。", mood: 'cold', bg: ASSETS.bg.qingjing_night },
+                    { speaker: '旁白', text: " 是夜。竹舍外站着一人。身上的寒气聚集已久，不知在等何人。", mood: 'cold' },
+                    { speaker: '旁白', text: " 远处传来动静，月明风清，竹影摇曳。来人正是沈清秋。", mood: 'cold' },
+                    { speaker: '旁白', text: " 岳清源看着即将忽视自己离开的人，心中一痛。眼前出现两个选项。", mood: 'cold' },
+                    { speaker: '旁白', text: " 一个是自己前世早已做出的选择，一个是……惊世骇俗。他这一次……真的还要放手吗？", mood: 'cold' },
+                    { speaker: '旁白', text: " 不！岳清源心底有一道声音这样喊着。他死死抓住沈清秋。", mood: 'cold' }
                 ],
                 next: 'path_a_title'
             },
             'path_a_title': {
                 type: 'ending',
-                title: '强制歧路甲',
-                subtitle: '竹柏剑穗',
+                title: 'A：一生之遥',
+                subtitle: '',
                 bg: ASSETS.bg.qingjing_night,
                 next: 'path_a'
             },
             'path_a': {
                 lines: [
-                    { speaker: '旁白', text: "岳清源松开了沈清秋的手，对方像触及瘟神般，立即抽身离开。", mood: 'narrative' },
-                    { speaker: '旁白', text: "岳清源被拒之门外，神情很是颓然，将准备好的首席弟子礼从怀中取出——竹柏剑穗放在沈清秋的屋门口驻足许久才有离开之举。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋在门外彻底没动静后，思绪烦乱，只觉得岳清源真是有病，平白无故扰人清修，打开门，想把那物件扔的远远的，却发现人并没有走，离竹舍十几步远。", mood: 'narrative' },
-                    { speaker: '旁白', text: "两人看见对方都是一愣，十几步好似就是他们一生都无法跨越的距离。", mood: 'narrative' },
-                    { speaker: '系统', text: "【警告】检测到情感拼图缺失。因果链条重构中……强制进入另一段“真实”。", mood: 'system', shake: true }
+                    { speaker: '旁白', text: "岳清源看着对方眼中的抗拒，沈清秋像触及瘟神般，立即抽身离开。", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源被拒之门外，神情很是颓然。他将准备好的首席弟子礼——竹柏剑穗放在沈清秋的屋门口，驻足许久才有离开之举。", mood: 'cold' },
+                    { speaker: '旁白', text: "沈清秋等门外彻底没了动静，只觉思绪烦乱，平白无故被扰了清修。他打开门，本想把那物件扔得远远的。", mood: 'cold' },
+                    { speaker: '旁白', text: "却发现人并没有走远，就在离竹舍十几步远的地方。两人四目相对，皆是一愣。", mood: 'cold' },
+                    { speaker: '旁白', text: "短短十几步，却好似他们一生都无法跨越的距离。", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源最终还是选择了第二种，他和小九，应该有一个新的结局。", mood: 'cold' }
                 ],
                 next: 'path_b_title'
             },
             'path_b_title': {
                 type: 'ending',
-                title: '强制歧路乙',
-                subtitle: '岳清源的疯狂',
+                title: 'B：为你疯狂',
+                subtitle: '',
                 bg: ASSETS.bg.qingjing_night,
                 next: 'path_b'
             },
             'path_b': {
                 lines: [
-                    { speaker: '旁白', text: "岳清源的手指收得更紧，没有丝毫松手的架势。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋猛地挣动，却在对方稍稍卸力的瞬间猝不及防地向前一倾，就这失力空隙，便被他身后人死死将他箍进了怀里。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋扭转身体手肘狠狠向后撞去，用了十足劲在挣开的刹那反手一掌掴在对方脸上。脆响过后，四下陡然死寂。", mood: 'narrative' },
-                    { speaker: '旁白', text: "岳清源偏着脸，转过头来脸上笑得明朗。两人对视，沈清秋默默将刚动过人的手收到背后紧握成拳，他知道那一下太重，但事已至此已经不好再说什么，只得相顾无言。", mood: 'narrative' },
-                    { speaker: '旁白', text: "想离开刚又动作，下一秒，沉浑的灵力铺天盖地压来，将沈清秋所有的动作与话音都锁在原地。", mood: 'narrative' },
-                    { speaker: '旁白', text: "沈清秋被这股力道压得向后一仰，岳清源便趁机将人拥入怀中，扣住他的后颈，重重吻了上去。", mood: 'narrative', bg: ASSETS.bg.kiss },
-                    { speaker: '旁白', text: "这亲吻堵住了，那张从不服软的嘴，也堵住了自己喉间几欲冲出的辩解与苦衷。", mood: 'narrative' },
-                    { speaker: '旁白', text: "气息交缠间只剩下急促的闷响，像困兽的挣扎。岳清源闭着眼想，错过了这一次，下一次还能不能握得住他？", mood: 'narrative' }
+                    { speaker: '旁白', text: "岳清源的手指收得更紧，没有丝毫松手的架势。沈清秋猛地挣动，却在对方稍稍卸力的瞬间猝不及防地向前一倾，就这失力空隙，便被他身后人死死将他箍进了怀里。", mood: 'cold' },
+                    { speaker: '旁白', text: "沈清秋扭转身体手肘狠狠向后撞去，用了十足劲在挣开的刹那反手一掌掴在对方脸上。脆响过后，四下陡然死寂。", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源偏着脸，转过头来脸上笑得明朗。两人对视，沈清秋默默将刚动过人的手收到背后紧握成拳，他知道那一下太重，但事已至此已经不好再说什么，只得相顾无言。", mood: 'cold' },
+                    { speaker: '旁白', text: "想离开刚又动作，下一秒，沉浑的灵力铺天盖地压来，将沈清秋所有的动作与话音都锁在原地。", mood: 'cold' },
+                    { speaker: '旁白', text: "沈清秋被这股力道压得向后一仰，岳清源便趁机将人拥入怀中，扣住他的后颈，重重吻了上去。", mood: 'cold' },
+                    { speaker: '旁白', text: "这亲吻堵住了，那张从不服软的嘴，也堵住了自己喉间几欲冲出的辩解与苦衷。气息交缠间只剩下急促的闷响，像困兽的挣扎。", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源闭着眼想，错过了这一次，下一次解释的机会，又是什么时候？", mood: 'cold' },
+                    { speaker: '旁白', text: "沈清秋震惊于岳清源的行为，推开岳清源后，慌不择路地跑回了竹舍内。就是这时。", mood: 'cold', bg: ASSETS.bg.qingjing_night }
                 ],
                 next: 'scene_system_space'
             },
             'scene_system_space': {
                 lines: [
-                    { speaker: '旁白', text: "画面归于寂静，沈清秋进入系统空间，面对悬浮的光团。", mood: 'narrative', bg: ASSETS.bg.system_space, shake: true },
+                    { speaker: '旁白', text: " 画面归于寂静，沈清秋进入系统空间，面对悬浮的光团。", mood: 'cold', bg: ASSETS.bg.system_space },
                     { speaker: '沈清秋', text: "刚才那是……什么鬼魅邪术？你是何方妖孽？", mood: 'shocked' },
-                    { speaker: '系统', text: "宿主沈清秋，请冷静。你可以将我视为某种“器灵”，但在我的世界，我被称为“系统”。", mood: 'cold' },
-                    { speaker: '沈清秋', text: "“系统”……从未听闻的名字。你刚才让我看到的那些幻象，究竟想说明什么？", mood: 'clenched' },
-                    { speaker: '系统', text: "我是由无数“愿景”凝聚而成的产物，你可以理解为一种“天命的修正机制”。刚才你体验的是一个通往毁灭的歧路。", mood: 'cold' },
-                    { speaker: '系统', text: "你现在正处于一段轮回中。每一次出现这种错误的结局并重来，岳清源的寿元便会折损。", mood: 'cold' },
-                    { speaker: '系统', text: "除非你能在这重重迷雾中，亲手推动一个“圆满结局”。", mood: 'cold' },
-                    { speaker: '系统', text: "只有达成圆满，岳清源折损的寿元才会被彻底抵消并补全。", mood: 'cold' },
-                    { speaker: '沈清秋', text: "（沉思良久）你要我用他的命来赌你可不可信吗？（握紧折扇）……在这世间，难道还有其他像我一样，被你们这种“系统”选中、或者说被缠上的人吗？", mood: 'clenched' },
+                    { speaker: '系统', text: "宿主沈清秋，请冷静。你可以将我视为某种'器灵'，但在我的世界，我被称为'系统'。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "'系统'……从未听闻的名字。刚刚发生的一切，是假的，是你让我看见的还是......不可能。", mood: 'clenched' },
+                    { speaker: '系统', text: " 他吻了你，我无法左右你们的选择，也操控不了你们。", mood: 'cold' },
+                    { speaker: '系统', text: "我的存在，是帮助你在关键时刻，提供选择。你做出不同的选择，你们将走向不同的结局。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "你的目的是什么？", mood: 'cold' },
+                    { speaker: '系统', text: "用户暂时无权得知。你只需要知道，我不会害你，反而我可以是你的助手。", mood: 'cold' },
+                    { speaker: '沈清秋', text: " 我凭什么相信你这个不人不鬼的东西。", mood: 'cold' },
+                    { speaker: '旁白', text: " 那你要用岳清源的命跟我赌吗？", mood: 'cold' },
+                    { speaker: '沈清秋', text: "（握紧折扇）……在这世间，难道还有其他像我一样，被你们这种'系统'选中、或者说被缠上的人吗？", mood: 'clenched' },
                     { speaker: '系统', text: "有。", mood: 'cold' },
                     { speaker: '沈清秋', text: "谁？", mood: 'cold' },
-                    { speaker: '系统', text: "您暂时无权访问。但那人不会阻碍您的选择。", mood: 'cold' },
-                    { speaker: '旁白', text: "（序章 完）", mood: 'narrative' }
+                    { speaker: '系统', text: "您暂时无权访问。但那人不会阻碍您的选择。", mood: 'cold' }
+                ],
+                next: 'chapter1'
+            },
+
+            // ========== Chapter 1: 双面间谍 ==========
+            'chapter1': {
+                lines: [
+                    { speaker: '旁白', text: "岳清源、沈清秋等人上任峰主后，尚清华在一日晨会上汇报工作。", mood: 'cold', bg: ASSETS.bg.meeting_room },
+                    { speaker: '尚清华', text: "这次下山总计花费一万灵石。", mood: 'cold' },
+                    { speaker: '齐清萋', text: "总计？明细呢？", mood: 'confused' },
+                    { speaker: '尚清华', text: "嗯，大约是衣料和修炼资源，这些花了六千多灵石。路线花了一千五左右，余下的是购置的杂物，一些弟子们想要的东西。", mood: 'cold' },
+                    { speaker: '岳清源', text: "尚师弟，这次路线怎么多花了一半的钱？平时不是七百多灵石吗？", mood: 'confused' },
+                    { speaker: '尚清华', text: "之前那条路呃，不太好走。", mood: 'awkward' },
+                    { speaker: '旁白', text: "对于路线和行程总是有些含糊不清。这引起了沈清秋的注意，而且沈清秋在这一次早会后注意到尚清华总是会在特定的时间偷偷摸摸的下山，去的也不是热闹的地方，而是人迹罕至的地方。", mood: 'cold' }
+                ],
+                next: 'chapter1_investigation'
+            },
+            'chapter1_investigation': {
+                lines: [
+                    { speaker: '旁白', text: "散会后。沈清秋想起在弟子时期尚清华与同门们出的那次任务，其他人都死了，唯独他活了下来，自己不曾负伤不说，还能把师兄弟们的尸体带回山，如今再次想起仍是疑点重重。", mood: 'cold' },
+                    { speaker: '旁白', text: "可惜当时自己虽已怀疑了尚清华，但是却被岳清源打断了，没能继续追问下去，因而事后便也是不了了之。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "我记得你是内门弟子。", mood: 'cold', bg: ASSETS.bg.bamboo_hut_day },
+                    { speaker: '安定峰内门弟子小白', text: "是，弟子是安定峰的内门。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "你这些天去安定峰看看下一次的采购路线，有无不妥，还有资金花销明细，这事之后你若愿意，就来清静峰内门。修炼资源不会少你的。你看如何？", mood: 'cold' },
+                    { speaker: '安定峰内门弟子小白', text: "弟子定当竭尽全力，不辜负沈师伯期望。", mood: 'happy' }
+                ],
+                next: 'chapter1_yqy_recall'
+            },
+            'chapter1_yqy_recall': {
+                lines: [
+                    { speaker: '旁白', text: "另一边。岳清源回想起，上一世弟子时期，沈清秋曾怀疑尚清华，以及上一世最后的确是尚清华背叛苍穹派。岳清源思虑再三，还是去了清静峰。", mood: 'cold', bg: ASSETS.bg.bedroom_day },
+                    { speaker: '旁白', text: "岳清源看着一名眼生的弟子从竹舍出来，微微皱眉，听见了屋内那人唤他进去。", mood: 'cold', bg: ASSETS.bg.bamboo_hut_day },
+                    { speaker: '沈清秋', text: "什么风把岳掌门吹来了？", mood: 'cold' },
+                    { speaker: '岳清源', text: "清秋师弟记不记得尚师弟在弟子时期曾逃脱魔族的攻击？他在那之后的状态总不太对，在很多事上都有些模糊。现在再细想，你或许是对的，是我想迟了。", mood: 'sad' },
+                    { speaker: '旁白', text: "沈清秋倒茶的手顿了一顿，听到对方终于愿意带上脑子重新审视这群师弟师妹们，不再无脑信任而感到欣慰，但面上却并没有任何暖色，神情自然地继续品茶。", mood: 'cold' }
+                ],
+                next: 'chapter1_cooperation'
+            },
+            'chapter1_cooperation': {
+                lines: [
+                    { speaker: '沈清秋', text: "哦？那你现在来找我是做什么？", mood: 'cold' },
+                    { speaker: '岳清源', text: "清秋，我想找出尚清华通魔的证据。这个事情若交给其他人，我都不放心，清秋师弟你最心细，做事最稳妥。交给你我才放心的。", mood: 'sad' },
+                    { speaker: '旁白', text: "岳清源上前几步，非常真诚的看着沈清秋的双眼。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "好……", mood: 'hesitant' },
+                    { speaker: '旁白', text: "沈清秋最烦的就是岳清源这个样子。偏偏自己拒绝不了，心中不由有些郁闷。", mood: 'cold' },
+                    { speaker: '岳清源', text: "（内心）所幸小九虽然表面上烦，但也答应了，还是像小时候一样……", mood: 'nostalgic' },
+                    { speaker: '沈清秋', text: "（内心）岳清源……我大概真的是个天生的坏坯子，总是看你不痛快自己才痛快。", mood: 'cold' },
+                    { speaker: '旁白', text: "沈清秋看了一眼岳清源那不值钱的笑容，习惯性的忽略掉心中的柔软，张嘴便又刺了几句。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "怎么掌门师兄托人办事，都是这样的吗，要有点态度的吧。清静峰后山上的竹林已许久无人照料……", mood: 'cold' },
+                    { speaker: '岳清源', text: "我这就安排人去。听说清秋前段日子想要修缮琴室，却差几块百年梧桐木，我寻来差人送上清静峰吧。", mood: 'happy' },
+                    { speaker: '沈清秋', text: "……", mood: 'reticent' }
+                ],
+                next: 'chapter1_mission'
+            },
+            'chapter1_mission': {
+                lines: [
+                    { speaker: '旁白', text: "再到早会时，尚清华又该要去采购了。交申请表时，岳清源开口说。", mood: 'cold', bg: ASSETS.bg.meeting_room },
+                    { speaker: '岳清源', text: "此次采买恐有危险，要采购的地方有魔物出现，让清秋师弟与你同去吧，也好有个照应。", mood: 'grinning' },
+                    { speaker: '尚清华', text: "（并没有发现端倪）好，掌门师兄。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "（声音一如既往）知道了。", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源在会后单独留下了尚清华。", mood: 'cold' },
+                    { speaker: '岳清源', text: "尚师弟，清秋师弟他总是孤零零的，你此次与他同去，若有机会，可以与他联络一下同门感情。", mood: 'grinning' },
+                    { speaker: '尚清华', text: "嗯嗯，我明白的，掌门师兄。", mood: 'cold' }
+                ],
+                next: 'chapter1_surveillance'
+            },
+            'chapter1_surveillance': {
+                lines: [
+                    { speaker: '旁白', text: "几人在路上，沈清秋坐在马车里，想着自己还没有掌握证据，打草惊蛇不便太过声张。于是在清理完魔物之后回了苍穹派，只留下监视灵镜在尚清华身上。这东西开启后放好，就可以远程用留影石实时察看录像。", mood: 'cold', bg: ASSETS.bg.mountain_day },
+                    { speaker: '旁白', text: "尚清华并没有察觉到异样，只觉这本来就是沈清秋的行为方式，他本来也没打算真的和沈清秋联络什么同门情谊。自顾自地继续采购去了。", mood: 'cold' },
+                    { speaker: '旁白', text: "过了几日，小白拿留影石给沈清秋。里面全是尚清华通魔的影像。", mood: 'cold', bg: ASSETS.bg.bamboo_hut_day },
+                    { speaker: '沈清秋', text: "平时看着胆子挺小，私下倒是够胆大的。", mood: 'cold' },
+                    { speaker: '旁白', text: "沈清秋一边将证据放到需要与掌门商谈的公文中，一边想到，自己当年的猜测果真是对的。岳清源那个蠢货，当年居然那么维护他，真是盐津虾又二多龙。我看这次尚清华还能怎么狡辩。于是沈清秋抱着公文和证据去找岳清源。", mood: 'cold' }
+                ],
+                next: 'chapter1_confrontation'
+            },
+            'chapter1_confrontation': {
+                lines: [
+                    { speaker: '沈清秋', text: "哈，这苍穹山当真是铁板一块，好的很呢。", mood: 'sarcastic', bg: ASSETS.bg.bedroom_day },
+                    { speaker: '旁白', text: "沈清秋将尚清华背叛的证据扔到小桌上, 抬眼看着岳清源。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "岳掌门果然爱护同门，竟能允许这种叛徒一直在眼皮子底下蹦哒，连当年质问时都护着。", mood: 'sarcastic' },
+                    { speaker: '旁白', text: "沈清秋紧紧的盯着岳清源的脸，虽然一脸怒气，可也并没有直接对尚清华做什么。毕竟岳清源才是苍穹山的掌门，自己与尚清华同为峰主自然不好直接对尚清华发作。", mood: 'cold' },
+                    { speaker: '岳清源', text: "（看完证据，叹了口气）这件事当真是多亏有你在，辛苦了清秋师弟，接下来我来解决吧。", mood: 'resigned' },
+                    { speaker: '沈清秋', text: "掌门师兄打算如何解决？是否需要通知其他峰主？", mood: 'cold' },
+                    { speaker: '沈清秋', text: "毕竟安定峰掌全派后勤，其峰主出现这种这么大的问题，自然是要谨慎处理，否则不光传出会变成宗门丑闻，苍穹山声望与地位将一落千丈，最重要的是之前分发给各峰的物资也要检查……", mood: 'cold' },
+                    { speaker: '沈清秋', text: "而且需要尽量小心以防引起弟子恐慌。沈某认为，此事暂不宜告知其他峰主。", mood: 'cold' },
+                    { speaker: '岳清源', text: "不错……让他成为双面间谍吧，为我们所用。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "他若不肯或阳奉阴违呢？", mood: 'cold' },
+                    { speaker: '岳清源', text: "那……", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源陷入了沉思。", mood: 'cold' }
+                ],
+                next: 'chapter1_gu_plan'
+            },
+            'chapter1_gu_plan': {
+                lines: [
+                    { speaker: '沈清秋', text: "沈某入山之前曾得到过一对能控制与自身修为相同阶层的修士生死的盅虫。", mood: 'cold' },
+                    { speaker: '岳清源', text: "（听到沈清秋清冷的声音愣了一下，抬头看着他）可，这蛊虫对你会不会有什么影响？", mood: 'scared' },
+                    { speaker: '沈清秋', text: "母蛊养在盒子里就行。", mood: 'cold' },
+                    { speaker: '岳清源', text: "那若是他反抗会不会反噬母蛊，你会不会受伤？", mood: 'scared' },
+                    { speaker: '沈清秋', text: "不会的，这是单方面影响的蛊虫。", mood: 'cold' },
+                    { speaker: '旁白', text: "沈清秋回答的过于从容利落，仿佛早已想好此事的解决办法。", mood: 'cold' },
+                    { speaker: '岳清源', text: "（内心）小九从来都是有主意的人，只是这一次，似乎我认识了一个新的他。或者说，我从前一直忽视了小九真实的模样。这样的小九，让人很安心。", mood: 'nostalgic' },
+                    { speaker: '岳清源', text: "那若他不愿，我们就对外称他走火入魔，需闭关修养。如此还可以获取魔族的消息。", mood: 'cold' },
+                    { speaker: '沈清秋', text: "好。", mood: 'cold' }
+                ],
+                next: 'chapter1_execution'
+            },
+            'chapter1_execution': {
+                lines: [
+                    { speaker: '旁白', text: "沈清秋从公文堆中拿出了一个银雕小盒，用簪子将子蛊挑出来，包进了岳清源递来的茶点里。", mood: 'cold', bg: ASSETS.bg.bedroom_day },
+                    { speaker: '旁白', text: "岳清源派人将尚清华请来。行动进行的很顺利。", mood: 'cold' },
+                    { speaker: '旁白', text: "当天晚上，沈清秋看见母蛊开始活跃起来，便知他的计谋已经成功。", mood: 'cold' },
+                    { speaker: '旁白', text: "在尚清华成为双面间谍后的日子里，岳清源和沈清秋寻了个由头，将从前的那些物资暗地里检查了一番，所幸并没有发现什么问题。", mood: 'cold', bg: ASSETS.bg.anding_peak }
+                ],
+                next: 'chapter1_aftermath'
+            },
+            'chapter1_aftermath': {
+                lines: [
+                    { speaker: '旁白', text: "几日后，岳清源在早会上又双叒叕让沈清秋和其他同门的关系好一点。沈清秋也在表面上对其他人，包括尚清华也客气了一些。", mood: 'cold', bg: ASSETS.bg.mountain_day },
+                    { speaker: '魏清巍', text: "这些日子沈师兄也挺敷衍的。", mood: 'cold' },
+                    { speaker: '木清芳', text: "魏师兄何以见得？他不是到处串门吗？", mood: 'confused' },
+                    { speaker: '魏清巍', text: "他最多就坐一刻钟，坐够时间转头就跑。", mood: 'cold' },
+                    { speaker: '齐清萋', text: "但沈师兄最近没怎么和柳师弟切磋了。", mood: 'cold' },
+                    { speaker: '魏清巍', text: "那倒是。", mood: 'cold' },
+                    { speaker: '旁白', text: "这对于其他人来讲，是同门交流感情，可对于尚清华来讲，这根本就是威慑。", mood: 'cold' },
+                    { speaker: '旁白', text: "毕竟只要仔细想想就知那蛊虫根本不可能是掌门师兄的，掌门师兄没有途径能获得这种旁门左道之物，或者说整个苍穹山除了沈清秋都没有途径获取，也只有当过散修的沈清秋会有。", mood: 'cold' },
+                    { speaker: '旁白', text: "这几个月以来，对于尚清华简直是哑巴吃黄连，他根本没有办法去和其他人讲，而且沈清秋也不止来找他，他是除了齐清萋之外的所有峰主都找了个遍。", mood: 'cold' },
+                    { speaker: '旁白', text: "不过沈清秋只在前几个月去找了师弟们，看尚清华并没有什么异动，便与岳清源只通过蛊虫来观察尚清华了。", mood: 'cold' }
+                ],
+                next: 'chapter1_reform'
+            },
+            'chapter1_reform': {
+                lines: [
+                    { speaker: '旁白', text: "岳清源解决完尚清华背叛之事后，因上一世的记忆，便决定开始着手整顿门风。但这毕竟是一项大工程，需要慢慢的渗透肃清。不能做太严厉的同时，也需要抓一些的典型来树立威严。", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源因为整顿门风的事，一直没有来得及去和清秋师弟好好聊聊天，感谢他费心费力的找证据。", mood: 'cold' },
+                    { speaker: '旁白', text: "虽然沈清秋知道岳清源在忙。他也并非邀功请赏之辈，那一吻之后，自己有时候都不甚清楚，自己在想什么，昏了头，有那么一刻，他居然会怪岳清源，这么久都没有来找过自己…", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源简直就是一个用着人朝前，用不着人朝后的混蛋。再加上收集证据忙了半个多月，沈清秋一直也没有睡好。", mood: 'cold' },
+                    { speaker: '旁白', text: "于是沈清秋决定下山放松一下，便去了暖红阁赏舞听曲。", mood: 'cold' },
+                    { speaker: '旁白', text: "百战峰有一个弟子，一直非常关注沈清秋，并且经常沈清秋在下山之后就告诉季钰，而季钰又告诉柳清歌。", mood: 'cold' },
+                    { speaker: '旁白', text: "岳清源忙的差不多了，终于腾出手可以去清静峰找沈清秋好好说说话，可到了清静峰才发现哪有小九的身影。岳清源刚回穹顶峰。这时柳清歌刚好来，告诉他，沈清秋在暖红阁。", mood: 'cold' }
                 ],
                 next: 'endingWait'
             },
             'endingWait': {
                 type: 'ending',
                 title: '未完待续',
-                text: "序章结束。",
+                text: "后续章节开发中……",
                 bg: ASSETS.bg.start
             }
         };
@@ -758,7 +903,13 @@
                 id: 'chapter0',
                 order: 0,
                 title: '序章',
-                description: '沈清秋获得赐名当日。'
+                description: '沈清秋获得赐名当日'
+            },
+            'chapter1': {
+                id: 'chapter1',
+                order: 1,
+                title: '第一章',
+                description: '双面间谍'
             }
         };
         const TOTAL_CHAPTERS = Object.keys(CHAPTERS_META).length;
@@ -904,12 +1055,25 @@
         const DialogueBox = ({ speaker, text, onNext, isTyping, typingText, isNarrative, onLog, onAuto, onSkip, isAuto, isSkip, onBack, canGoBack }) => {
             // 颜色映射
             const getColors = (name) => {
+                // 主角
                 if (name === '沈清秋') return { text: 'text-emerald-300', border: 'border-emerald-600/50' };
                 if (name === '岳清源') return { text: 'text-indigo-300', border: 'border-indigo-600/50' };
-                if (name === '木清芳') return { text: 'text-amber-600', border: 'border-amber-700/50' };
-                if (name === '琵琶女') return { text: 'text-pink-300', border: 'border-pink-600/50' };
+
+                // 系统/叙述
                 if (name === '系统') return { text: 'text-sky-300', border: 'border-sky-600/50' };
-                if (name === '旁白') return { text: 'text-amber-200/80', border: 'border-amber-600/30' };
+                if (name === '旁白' || name === '背景') return { text: 'text-amber-200/80', border: 'border-amber-600/30' };
+
+                // 峰主们
+                if (name === '尚清华') return { text: 'text-rose-300', border: 'border-rose-600/50' };
+                if (name === '齐清萋') return { text: 'text-purple-300', border: 'border-purple-600/50' };
+                if (name === '柳清歌') return { text: 'text-pink-300', border: 'border-pink-600/50' };
+                if (name === '魏清巍') return { text: 'text-orange-300', border: 'border-orange-600/50' };
+                if (name === '木清芳') return { text: 'text-lime-300', border: 'border-lime-600/50' };
+
+                // 弟子
+                if (name.includes('弟子') || name.includes('小白')) return { text: 'text-teal-300', border: 'border-teal-600/50' };
+
+                // 默认（其他角色）
                 return { text: 'text-slate-300', border: 'border-cyan-600/50' };
             };
 
@@ -1297,12 +1461,25 @@
 
             // 颜色映射（与对话框保持一致）
             const getSpeakerColor = (name) => {
+                // 主角
                 if (name === '沈清秋') return 'text-emerald-300';
                 if (name === '岳清源') return 'text-indigo-300';
-                if (name === '木清芳') return 'text-amber-600';
+
+                // 系统/叙述
                 if (name === '系统') return 'text-sky-300';
-                if (name === '旁白') return 'text-amber-200/80';
-                if (name === '琵琶女') return 'text-pink-300';
+                if (name === '旁白' || name === '背景') return 'text-amber-200/80';
+
+                // 峰主们
+                if (name === '尚清华') return 'text-rose-300';
+                if (name === '齐清萋') return 'text-purple-300';
+                if (name === '柳清歌') return 'text-pink-300';
+                if (name === '魏清巍') return 'text-orange-300';
+                if (name === '木清芳') return 'text-lime-300';
+
+                // 弟子
+                if (name.includes('弟子') || name.includes('小白')) return 'text-teal-300';
+
+                // 默认（其他角色）
                 return 'text-slate-300';
             };
 
@@ -1975,13 +2152,13 @@
                         const mood = currentLine?.mood || 'neutral';
                         let spriteSrc = ASSETS.char.sqq.v1; // 默认：正常
 
-                        if (['neutral', 'normal', 'cold', 'disdain', 'determined', 'narrative'].includes(mood)) {
+                        if (['neutral', 'normal', 'cold', 'disdain', 'determined', 'narrative', 'reticent'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v1; // 1. 正常
                         } else if (['sleep', 'sorrow', 'despair', 'calm', 'thinking'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v2; // 2. 闭眼
                         } else if (['pain', 'embarrassed_shy', 'flush'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v3; // 3. 脸红闭眼
-                        } else if (['worried', 'confused', 'surprised', 'shocked', 'soft', 'hesitant', 'repulsive', 'angry'].includes(mood)) {
+                        } else if (['worried', 'confused', 'surprised', 'shocked', 'soft', 'hesitant', 'repulsive', 'angry', 'sarcastic'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v4; // 4. 眼睛看旁边
                         } else if (['shame', 'shy', 'flustered', 'dark'].includes(mood)) {
                             spriteSrc = ASSETS.char.sqq.v5; // 5. 脸红+眼睛看旁边
@@ -2143,3 +2320,4 @@
 </body>
 
 </html>
+<script src="scenes.js"></script>
