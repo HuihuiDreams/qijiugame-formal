@@ -729,7 +729,7 @@
                     { speaker: '沈清秋', text: "你的目的是什么？", mood: 'cold' },
                     { speaker: '系统', text: "用户暂时无权得知。你只需要知道，我不会害你，反而我可以是你的助手。", mood: 'cold' },
                     { speaker: '沈清秋', text: " 我凭什么相信你这个不人不鬼的东西。", mood: 'cold' },
-                    { speaker: '旁白', text: " 那你要用岳清源的命跟我赌吗？", mood: 'cold' },
+                    { speaker: '系统', text: " 那你要用岳清源的命跟我赌吗？", mood: 'cold' },
                     { speaker: '沈清秋', text: "（握紧折扇）……在这世间，难道还有其他像我一样，被你们这种'系统'选中、或者说被缠上的人吗？", mood: 'clenched' },
                     { speaker: '系统', text: "有。", mood: 'cold' },
                     { speaker: '沈清秋', text: "谁？", mood: 'cold' },
@@ -2141,7 +2141,7 @@
                 return html`
                     <div class="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
                         <div class="w-1/2 h-full max-w-[500px] relative transition-all duration-[800ms] cubic-bezier(0.34, 1.56, 0.64, 1) ${isYQY ? 'translate-y-0 opacity-100 scale-105 z-20' : 'translate-y-4 opacity-0 scale-95 z-10'}">
-                            <img src=${ASSETS.char.yqy} class="char-sprite absolute bottom-0 left-1/2 md:left-[40%] -translate-x-1/2 h-[85%] object-contain object-bottom" />
+                            <img src=${ASSETS.char.yqy} class="char-sprite absolute bottom-0 left-1/2 -translate-x-1/2 h-[85%] object-contain object-bottom" />
                         </div>
                         <div class="w-1/2 h-full max-w-[500px] relative transition-all duration-[800ms] cubic-bezier(0.34, 1.56, 0.64, 1) ${isSystem ? 'translate-y-0 opacity-100 scale-105 z-20' : 'translate-y-4 opacity-0 scale-95 z-10'}">
                             <img src=${ASSETS.char.system} class="char-sprite absolute bottom-0 left-1/2 -translate-x-1/2 h-[85%] object-contain object-bottom" />
@@ -2164,7 +2164,7 @@
                             spriteSrc = ASSETS.char.sqq.v5; // 5. 脸红+眼睛看旁边
                         }
 
-                        return html`<img src=${spriteSrc} class="char-sprite absolute bottom-0 left-1/2 md:left-[60%] -translate-x-1/2 h-[85%] object-contain object-bottom" />`;
+                        return html`<img src=${spriteSrc} class="char-sprite absolute bottom-0 left-1/2 -translate-x-1/2 h-[85%] object-contain object-bottom" />`;
                     })()}
                         </div>
                     </div>
